@@ -1,2 +1,2 @@
 setter_getter.st
-Hola mundo
+"Hello World"
