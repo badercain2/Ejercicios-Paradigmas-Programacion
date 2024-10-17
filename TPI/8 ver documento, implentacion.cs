@@ -48,7 +48,7 @@ namespace JuegoTablero
         public Tablero(int tamaño)
         {
             Tamaño = tamaño;
-            Casillas = new Casilla[Tamaño, Tamaño];
+            Casillas = new Casilla[Tamaño, Tamaño];     //aca crea una matriz y le dice que el tipo de dato que entra es de objeto casilla
             InicializarTablero();
         }
 
@@ -58,7 +58,7 @@ namespace JuegoTablero
             {
                 for (int j = 0; j < Tamaño; j++)
                 {
-                    Casillas[i, j] = new Casilla();
+                    Casillas[i, j] = new Casilla();   // aca va cargando con casillas la matriz.
                 }
             }
         }
@@ -69,8 +69,8 @@ namespace JuegoTablero
             {
                 for (int j = 0; j < Tamaño; j++)
                 {
-                    Console.Write(Casillas[i, j].Propietario + "\t");
-                }
+                    Console.Write(Casillas[i, j].Propietario + "\t");//aca selecciono cada objeto de la matriz y le mando el mensaje propietado 
+                }                                                  // matriz [1,1] --> tiene un objeto. a ese objeto le mando el mensaje de propietario
                 Console.WriteLine();
             }
         }
