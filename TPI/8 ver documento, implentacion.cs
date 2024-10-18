@@ -23,8 +23,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace JuegoTablero
-{
+namespace JuegoTabler
+o{
     public class Casilla
     {
         public string Propietario { get; set; }
@@ -85,7 +85,7 @@ namespace JuegoTablero
             Casillas[x, y].Marcar(nombreJugador);
             jugador.CasillasPoseidas++;
         }
-
+        
         private void MarcarCasillasDeJugadorEliminado(string jugadorEliminado, string nuevoPropietario, Jugador nuevoJugador, List<Jugador> jugadores)
         {
             foreach (Jugador jugador in jugadores)
@@ -118,7 +118,7 @@ namespace JuegoTablero
         public int CasillasPoseidas { get; set; }
         private List<(int x, int y)> posicionesConquistadas;
 
-        public Jugador(string nombre, int x, int y, Tablero tablero)
+        public Jugador(string nombre, int x, int y, Tablero tablero) //asi se crean los objetos
         {
             Nombre = nombre;
             CasillasPoseidas = 1;
