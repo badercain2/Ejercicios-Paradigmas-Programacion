@@ -92,11 +92,15 @@ namespace JuegoTablero
             posicionesConquistadas = new List<(int x, int y)>();
             posicionesConquistadas.Add(posicion); // Agrega la posición inicial a las conquistadas
         }
-
+        // creo que seria, vos me envias esos 2 y yo te envio la posicion
         public (int x, int y) Posicion
         {
             get { return posicion; }
         }
+        // como posicion esta en privado, de esta manera se accede, yo tengo todo en publico asi que le envias el mensaje posicion y listo
+        //como el mio esta todo en publico, no necesito propiedades publicas, para acceder a algo privado ya que esta todo en publico
+        //por lo tanto no necesito poner este codigo
+        //esto solo seria necesario para acceder al atributo posicion si lo hubiera puesto en privado 
 
         // Método para mover basado en coordenadas y restringido a posiciones adyacentes
         public void MoverA(int nuevaX, int nuevaY, Tablero tablero)

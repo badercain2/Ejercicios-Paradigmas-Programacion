@@ -9,12 +9,24 @@ using System.Collections.Generic;
 //Cuando llamo a funciones que ya estan definidas en mi mismo no olvidar del SELF.
 //SELF ES MUY IMPORTANTE
 
+//Aunque no diga setter o getter ponerlo igual en cada atributo ya que si un mismo metodo
+//privado, quiere escribir o no, igual va a usar este mensaje de getter o setter. es obligatorio que todos los atributos tengan
+
+
+
+Tarea ya
+    crear un  atributo que acepte tuplas o posiciones y las vaya almacenando. esto en prueba
+    luego acceder a cada cosa, porque despues necesito esto.
+    1 ro intentar esto y luego intentar entender bien la implementacion
+
 namespace JuegoTablero
 {
     public class Casilla
-    {
+    {   
         public string Propietario { get; set; }
-
+        //modif   tipodedato  nombre_variable
+                  //los tipos de dato en pharo aca al definir los atributos no hacen falta
+                  //por ejemplo no digo que va a entrar un string, directamente le mando un string
         public Casilla() 
         {
             Propietario = "Ninguno";
@@ -92,9 +104,13 @@ namespace JuegoTablero
     public class Jugador
     {
         public string Nombre { get; set; }
+        //este si tiene getter y setter porque necesitamos buscar informacion del objeto 
         private (int x, int y) posicion;
+        //esto no tiene getter ni setter porque es solo como un registro no mas
+        //por eso esta en privado
         private List<(int x, int y)> posicionesConquistadas;
 
+        //cuando dice public y el nombre de la claase es un constructor
         public Jugador(string nombre, int x, int y)
         {
             Nombre = nombre;
@@ -102,7 +118,7 @@ namespace JuegoTablero
             posicionesConquistadas = new List<(int x, int y)>();
             posicionesConquistadas.Add(posicion); // Agrega la posición inicial a las conquistadas
         }
-
+        //creo que esto de abajo es una lectura 
         public (int x, int y) Posicion
         {
             get { return posicion; }
@@ -113,6 +129,7 @@ namespace JuegoTablero
         {
             // Verificar si las nuevas coordenadas están dentro de los límites del tablero
             if (nuevaX < 0 || nuevaX >= tablero.Tamaño || nuevaY < 0 || nuevaY >= tablero.Tamaño)
+            //en el jueguito le puse un 1
             {
                 Console.WriteLine("Movimiento inválido. Las coordenadas están fuera del tablero.");
                 return;
@@ -140,6 +157,7 @@ namespace JuegoTablero
         }
     }
 
+//me quede aca c
     public class Juego
     {
         private Tablero tablero;
