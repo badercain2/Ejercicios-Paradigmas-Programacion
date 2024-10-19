@@ -1,0 +1,25 @@
+posiciones adyacentes funcion (implementado y funciona)
+
+
+jugar por todo el tablero funcion (implementado y funcion)
+
+se cambio a variables locales, se puede trabajar igual pero con locales
+se me hace un poco menos problematicos
+x:=nuevaX.
+Si no querer trabajar con variables locales donde esta x poner nuevaX. y asi con Y
+
+no avanza hasta que se ponga los datos correctos, es decir dentro del tablero
+y adyacente (implementado y funciona)
+
+puede comer al rival (implementado y funciona)
+
+no elimina al rival comido (error) -->Esto impelemtarlo despues
+
+no quedarme en mi mismo lugar porque me come automatica (error)
+
+
+
+Error tambien que inicialize a las casillas con el nombre de los jugadores 
+de forma manual, ese error es de las casillas, porque lo jugadores ya saben
+que poseen esas casillas pero las casillas lo saben de forma manual (error)
+
