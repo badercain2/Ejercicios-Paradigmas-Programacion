@@ -165,6 +165,7 @@ namespace JuegoTablero
 
 //me quede aca 
     public class Juego
+    //desde aca controlo a los objetos jugadores y a los objetos tablero
     {
         private Tablero tablero;
         private List<Jugador> jugadores;

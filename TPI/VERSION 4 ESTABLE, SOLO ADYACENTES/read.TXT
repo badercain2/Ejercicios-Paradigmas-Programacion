@@ -1,0 +1,15 @@
+posiciones adyacentes funcion (implementado y funciona)
+
+jugar por todo el tablero funcion (implementado y funcion)
+
+puede comer al rival (implementado y funciona)
+
+no quedarme en mi mismo lugar porque me come automatica (error)
+
+Error tambien que inicialize a las casillas con el nombre de los jugadores 
+de forma manual, ese error es de las casillas, porque lo jugadores ya saben
+que poseen esas casillas pero las casillas lo saben de forma manual (error)
+
+
+(no implementado el no dejar mover hasta que se mueva, este me tira muchos errores)
+(eso en la version 5)

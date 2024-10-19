@@ -10,6 +10,8 @@ por eso es la version 1
 medio pelaso 
 "
 
+"inspeccionando el objeto juego podes ver que pasa con el tablero y que pasa con los jugadores. igual al uml"
+
 
 
 |juego|
