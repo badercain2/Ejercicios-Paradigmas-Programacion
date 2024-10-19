@@ -74,6 +74,7 @@ namespace JuegoTablero
         }
 
         public void MoverJugador(int x, int y, string nombreJugador)
+        //aca hay un problema
         {
             if (Casillas[x, y].Propietario != "Ninguno")
             {
@@ -137,6 +138,7 @@ namespace JuegoTablero
 
             // Verificar si el movimiento es a una posición adyacente
             int diffX = Math.Abs(nuevaX - posicion.x);
+            //No trate de forma correcta esta diferencia
             int diffY = Math.Abs(nuevaY - posicion.y);
 
             if (diffX > 1 || diffY > 1 || (diffX == 1 && diffY == 1))
@@ -146,7 +148,11 @@ namespace JuegoTablero
             }
 
             // Mover el jugador
+
+            "aca hay problemas"
             tablero.MoverJugador(nuevaX, nuevaY, Nombre);
+            //verificado funciona bien
+
             posicion = (nuevaX, nuevaY);
 
             // Agregar nueva posición a las conquistadas
@@ -157,7 +163,7 @@ namespace JuegoTablero
         }
     }
 
-//me quede aca c
+//me quede aca 
     public class Juego
     {
         private Tablero tablero;
@@ -166,18 +172,23 @@ namespace JuegoTablero
         public Juego(int tamañoTablero)
         {
             tablero = new Tablero(tamañoTablero);
+            "lista que almacena jugadores"
             jugadores = new List<Jugador>();
+
             InicializarJugadores();
         }
 
         private void InicializarJugadores()
-        {
+        {   
+            //esto se inicializa solo con el new 
             // Establecer las posiciones iniciales de los jugadores
             jugadores.Add(new Jugador("Jugador 1", 0, 0)); // (1,1)
             jugadores.Add(new Jugador("Jugador 2", 0, 3)); // (1,4)
             jugadores.Add(new Jugador("Jugador 3", 3, 0)); // (4,1)
             jugadores.Add(new Jugador("Jugador 4", 3, 3)); // (4,4)
         }
+
+        //este es el mensaje que inicia todo el juego
 
         public void IniciarJuego()
         {
@@ -186,7 +197,9 @@ namespace JuegoTablero
                 foreach (var jugador in jugadores)
                 {
                     Console.Clear();
+                    "poner un transcript porque este devuelve un valor y ponerle asString"
                     tablero.MostrarTablero();
+
                     Console.WriteLine($"{jugador.Nombre}, ingresa las coordenadas a donde te quieres mover (formato: x y): ");
 
                     // Leer coordenadas del jugador
