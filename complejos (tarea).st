@@ -260,7 +260,7 @@ entrada:= UIManager default request: ' ingresar una fecha '.
 	
 	 ]
 
-
+"hola"
 
 
 "el lunes es el parcial y usamos la misma logica que estamos viendo en clase lo de validar dividiendo substring y demas"
