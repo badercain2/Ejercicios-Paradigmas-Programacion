@@ -1,0 +1,1 @@
+{-Es muy potente porque puedo poner patrones -}

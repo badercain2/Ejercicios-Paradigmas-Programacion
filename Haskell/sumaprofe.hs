@@ -1,9 +1,14 @@
 suma 1 y z = y + z
 suma _ y z = y - z
 
+{-
+Es usar 2 patron
+si el primer elemento es 1 entonces va a suma
+si el primer elemento es cualquier otra cosa entones va a restar
 
-"explicacion
+}
 
+{-
 El código Haskell que escribiste parece tener una pequeña confusión en su sintaxis. En Haskell, las funciones se definen con sus parámetros separados por espacios, y una función puede tener varias definiciones para cubrir distintos casos, usando patrones.
 
 Aquí tienes cómo interpretar y corregir lo que has escrito:
@@ -24,4 +29,4 @@ Aquí, el guion bajo _ es un comodín que coincide con cualquier valor (excepto 
 Esto significa que si el primer argumento no es 1, la función devolverá la resta de y y z.
 Ejemplo de Uso:
 
-"
+-}

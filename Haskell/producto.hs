@@ -19,3 +19,7 @@ Si el segundo
 -}
 
 {-Proceso de reduccion hay que hacer siempre para entender bien las funciones-}
+
+{-emparejamiento con el patro, es si mi entrada empareja con una de las 3 patrones.
+EL EMPAREJAMIENTO ES CON UN PATRO
+-}
