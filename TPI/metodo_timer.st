@@ -553,6 +553,144 @@ Object subclass: #Timer
 
 "METODO INICIAR"
 
+
+
+
+
+
+
+"initialize"
+initialize 
+    timer_1 :=10.
+    timer_2:=10.
+    vs:=1.
+    proceso:=nil.
+
+"ahora tengo que crear otro metodo similar al crearVentana"
+"este nuevo metodo debe ir despues de timer:=0."
+"lo que debe hacer es crear una imagen de la vasija rota en el perdedor"
+"creo que se debe eliminar la ventana y luego usarndo un metodo igual al de crearVentana se debe
+crear una ventana con la vasija rota mientras el anterior se rompe"
+
+"para esto de abajo probar en una nueva clase, eso de ir sumando en la instancia de la clase la cantidad
+de objetos que se van creando , es como hacer un setter y un getter de esta informacion
+mete un setter de 1 cuando vas creando objetos
+hacer un getter para ir sacando la info cuando vas agarrando cosas de aca
+"
+
+"Tambien debo en el metodo crear ventana en la ventana 3. ver si vs es 1"
+"si vs=1 poner una imagen y cargar vs:=vs + 1"
+cuando vs=2. entonces cargar la 2da imagen.
+Asi hasta cargar todos los vs y una vez que esten todos los vs ya esta terminado
+
+"vs creo que debe ser atributo de clase. y este va cambiando cada vez que se crea"
+
+
+
+
+
+
+
+"manejo de contadores en las clases"
+"todas estos mensajes se los envia a una clase"
+
+
+
+"new"
+new
+     (cant_objetos isNil) ifTrue: [ 
+        cant_objetos := 0
+         ].
+    cant_objetos :=cant_objetos +1.
+    
+    (cant_objetos >3) ifTrue: [ cant_objetos :=1 ].
+    
+    ^super new.
+
+
+"getter de objetos"
+cantidadObjetos
+    ^cant_objetos. 
+
+
+"Asi esta constituida la clase"
+Contadora class
+    instanceVariableNames: 'cant_objetos'
+
+
+
+
+"voy a crear una 4ta ventana asi no se mezcla y este tenga su propio metodo"
+
+
+
+"ultima version"
+
+
+
+"crearVentanaRota"
+
+crearVentanaRota:anNumber
+    | screenWidth screenHeight |
+
+    "Obtener dimensiones de la pantalla"
+     screenWidth := Display width.
+     screenHeight := Display height.
+
+(anNumber =1 ) ifTrue: [  
+    
+    "Ventana 1: Izquierda"
+    ventana_4:= Morph  new.
+    ventana_4 color: Color green.
+    ventana_4 := (ImageReadWriter formFromStream: '/home/josuecenturion/Descargas/IMAGENES PROCESADAS/relojes/broke/pngwing.png' asFileReference binaryReadStream) asMorph.
+    ventana_4 extent: 200@100.
+    ventana_4 position: (screenWidth - 1450)@((screenHeight // 2) - 50). "Posiciona la ventana 2 lo más a la derecha y centrada verticalmente"
+
+
+    label_4 := TextMorph new.
+    "mensaje de la ventana al iniciar"
+    label_4 contents: 'Jugador 1'.
+    label_4 color: Color green.
+    label_4 position: (ventana_4 bounds origin) + (170@100).  "Posiciona el label dentro de la ventana 1"
+    label_4 font: (LogicalFont familyName: 'Arial' pointSize: 50). "Cambia 'Arial' y 20 según tus necesidades"
+
+        
+    ventana_4 addMorph: label_4.
+    ventana_4 openInWorld.].
+
+(anNumber =2) ifTrue: [  
+    "Ventana 2: Más a la derecha"
+    ventana_2 := Morph new.
+    ventana_2 color: Color green.
+    ventana_2 := (ImageReadWriter formFromStream: '/home/josuecenturion/Descargas/IMAGENES PROCESADAS/relojes/reloj.png' asFileReference binaryReadStream) asMorph.
+    ventana_2 extent: 200@100.
+    ventana_2 position: (screenWidth - 320)@((screenHeight // 2) - 50). "Posiciona la ventana 2 lo más a la derecha y centrada verticalmente"
+
+
+    label_2 := TextMorph new.
+    "mensaje de la ventana al iniciar"
+    label_2 contents: 'Jugador 2'.
+    label_2 color: Color red.
+    label_2 position: (ventana_2 bounds origin) + (170@100).  "Posiciona el label dentro de la ventana 2"
+    
+    ventana_2 addMorph: label_2.
+    ventana_2 openInWorld.].
+
+
+
+
+
+"clase asi"
+
+Object subclass: #Timer
+    instanceVariableNames: 'timer_1 timer_2 ventana_1 ventana_2 ventana_3 ventana_4  label_1 label_2 label_3 label_4 proceso turno vs'
+    classVariableNames: ''
+    package: 'AA'
+
+
+
+"iniciar:"
+
 iniciar:jugadorInicial
             |uno_sin_tiempo|
             uno_sin_tiempo :=false.
@@ -587,65 +725,106 @@ iniciar:jugadorInicial
                           label_2 contents: 'You won this battle'.
                         ventana_1 color: Color red.
                         ventana_2 color: Color green.
+                                ventana_1 delete.
+                            ventana_1 := nil.
+                                self crearVentanaRota:1.
                     (Delay forSeconds: 4) wait. 
-                    ventana_1 delete.
-                    ventana_1 := nil.
+                    ventana_4 delete.
+                          ventana_4 :=nil.
                     ventana_2 delete.
                     ventana_2 := nil.
-                    ventana_3 delete.
+                          ventana_3 delete.
                      ventana_3 := nil.
                             "Aca perdio el jugador 1"
                             "tratamiento"
-                            
                                 ].      
                     
                     (timer_2 =0) ifTrue: [
                     (Delay forSeconds: 1) wait.
+                    label_2 contents: 'Time is Over'.
                     label_1 contents: 'You won this battle'.
-                          label_2 contents: 'Time is Over'.
+                        ventana_2 color: Color red.
                         ventana_1 color: Color green.
-                        ventana_2 color: Color red .
+                                ventana_2 delete.
+                        ventana_2 := nil.
+                                self crearVentanaRota:2.
                     (Delay forSeconds: 4) wait. 
+                    ventana_4 delete.
+                          ventana_4 :=nil.
                     ventana_1 delete.
                     ventana_1 := nil.
-                          ventana_2 delete.
-                    ventana_2 := nil.
-                        "Aca perdio el jugador 2"
-                        "iniciar tratamiento"
-                                ].
-               
-         ]
+                          ventana_3 delete.
+                     ventana_3 := nil.
+                            "Aca perdio el jugador 1"
+                            "tratamiento"
+                          ].                               ].
          ] fork.
 
 
-"initialize"
-initialize 
-    timer_1 :=10.
-    timer_2:=10.
-    vs:=1.
-    proceso:=nil.
+"crearventanarota"
+
+crearVentanaRota:anNumber
+    | screenWidth screenHeight |
+
+    "Obtener dimensiones de la pantalla"
+     screenWidth := Display width.
+     screenHeight := Display height.
+
+(anNumber =1 ) ifTrue: [  
+    
+    "Ventana 1: Izquierda"
+    ventana_4:= Morph  new.
+    ventana_4 color: Color green.
+    ventana_4 := (ImageReadWriter formFromStream: '/home/josuecenturion/Descargas/IMAGENES PROCESADAS/relojes/broke/pngwing.png' asFileReference binaryReadStream) asMorph.
+    ventana_4 extent: 200@100.
+    ventana_4 position: (screenWidth - 1450)@((screenHeight // 2) - 50). "Posiciona la ventana 2 lo más a la derecha y centrada verticalmente"
 
 
-"ahora tengo que crear otro metodo similar al crearVentana"
-"este nuevo metodo debe ir despues de timer:=0."
-"lo que debe hacer es crear una imagen de la vasija rota en el perdedor"
-"creo que se debe eliminar la ventana y luego usarndo un metodo igual al de crearVentana se debe
-crear una ventana con la vasija rota mientras el anterior se rompe"
+    label_4 := TextMorph new.
+    "mensaje de la ventana al iniciar"
+    label_4 contents: 'Jugador 1'.
+    label_4 color: Color green.
+    label_4 position: (ventana_4 bounds origin) + (170@100).  "Posiciona el label dentro de la ventana 1"
+    label_4 font: (LogicalFont familyName: 'Arial' pointSize: 50). "Cambia 'Arial' y 20 según tus necesidades"
+
+        
+    ventana_4 addMorph: label_4.
+    ventana_4 openInWorld.].
+
+(anNumber =2) ifTrue: [  
+    "Ventana 2: Más a la derecha"
+    ventana_4 := Morph new.
+    ventana_4 color: Color green.
+    ventana_4 := (ImageReadWriter formFromStream: '/home/josuecenturion/Descargas/IMAGENES PROCESADAS/relojes/broke/pngwing.png' asFileReference binaryReadStream) asMorph.
+    ventana_4 extent: 200@100.
+    ventana_4 position: (screenWidth - 320)@((screenHeight // 2) - 50). "Posiciona la ventana 2 lo más a la derecha y centrada verticalmente"
+
+
+    label_4 := TextMorph new.
+    "mensaje de la ventana al iniciar"
+    label_4 contents: 'Jugador 2'.
+    label_4 color: Color red.
+    label_4 position: (ventana_4 bounds origin) + (170@100).  "Posiciona el label dentro de la ventana 2"
+    
+    ventana_4 addMorph: label_4.
+    ventana_4 openInWorld.].
+
+
+
+"crear ventana"
 
 
 
 
-"para esto de abajo probar en una nueva clase, eso de ir sumando en la instancia de la clase la cantidad
-de objetos que se van creando , es como hacer un setter y un getter de esta informacion
-mete un setter de 1 cuando vas creando objetos
-hacer un getter para ir sacando la info cuando vas agarrando cosas de aca
-"
-"Tambien debo en el metodo crear ventana en la ventana 3. ver si vs es 1"
-"si vs=1 poner una imagen y cargar vs:=vs + 1"
-cuando vs=2. entonces cargar la 2da imagen.
-Asi hasta cargar todos los vs y una vez que esten todos los vs ya esta terminado
 
-"vs creo que debe ser atributo de clase. y este va cambiando cada vez que se crea"
+"ya tengo la ultima version"
 
+
+"ahora solo achicar las imagenes, guardarla todas en pharo"
+
+"luego cambiar la direccion en el programa"
+
+
+"arreglar los pequeños mensajes y listo "
 
 
