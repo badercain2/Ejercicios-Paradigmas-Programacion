@@ -22,3 +22,15 @@ listas de ejercicios en hasckell
 "quitarNum esto esta implementado en el cuestionario de preguntas es la pregunta 17"
 
 "CONTINUA DESDE EL 17"
+
+"HACER COMO EL 20. EJERCICIOS PEQUEÑOS CON LAMBDA "
+
+"usar pregador para calcular la el factorial de 10"
+son foldl (fold left)
+son foldr (fold right)
+foldl (+) 5 [1,4,5,6]
+
+son foldl1 (fold left) (no necesita numero iniciar)
+son foldr1 (fold right) (no necesita numero iniciar)
+foldl1 (+)  [1,4,5,6]
+

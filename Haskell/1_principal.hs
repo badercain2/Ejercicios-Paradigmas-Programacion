@@ -18,8 +18,8 @@ restarEnteros x y = x - y
 
 {-el orden es importante, si ponemos el multiplicar x 0 = x . al final me tira error-}
 multiplicar :: Int -> Int -> Int
-multiplicar x 0 = 0
-multiplicar 0 y = 0
+multiplicar _ 0 = 0
+multiplicar 0 _ = 0
 multiplicar x y = x * y 
 
 
@@ -41,6 +41,9 @@ meterTuplas x y = (x , y)
 
 {-clase: Longitud de una lista-}
 {-Caso base va arriba, recursivo abajo-}
+
+{- por comprension
+[1..10] se puede .   [5..1] no se puede -}
 
 longitud :: [a] -> Int
 longitud [] = 0
@@ -79,13 +82,29 @@ ultimoElementoDevuelveLista (_:xs) = ultimoElementoDevuelveLista xs
 
 
 {-devolver el primer elemento-}
+primerElemento :: [a] -> a
+primerElemento (x:xs) = x 
 
 
-{-
-posicionElemento hacer este
--}
+{-el "_" significa cualquier cosa. es como que no lo considera porque no es importante-}
+
+{-posicionElemento hacer este-}
+
+{-Eq a me permite comparar ese algo, despues el a del elemento que se me pasa y luego el arreglo-}
+{- le estoy pidiendo 2 elementos -}
+{-si te falta algo no entra, considerar esto los patrones-}
+
+posicionElemento :: Eq a => a ->  [a] -> Int 
+posicionElemento _ [] = error "lista vacia"
+posicionElemento n (x:xs) | x == n = 1
+                          | otherwise = 1 + posicionElemento n xs  
+
+{-eliminar un elemento-}
 
 
+{-agregar un elemento-}
+
+{-cambiar un elemento-}
 
 
 
