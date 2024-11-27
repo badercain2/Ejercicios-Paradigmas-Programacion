@@ -14,3 +14,11 @@ listas de ejercicios en hasckell
 "generar una lista de una lista ordenada"
 
 "mezclar elementos de 2 listas"
+
+"usar el mapeo"
+
+"estudiar un poco sobre la evaluacion lambda que se usa bastante "
+
+"quitarNum esto esta implementado en el cuestionario de preguntas es la pregunta 17"
+
+"CONTINUA DESDE EL 17"
