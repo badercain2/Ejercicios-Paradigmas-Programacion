@@ -1,0 +1,16 @@
+listas de ejercicios en hasckell
+
+
+"recorrer una lista y devolver el ultimo elemento"
+
+"longitud de una lista"
+
+"recorrer una lista y devolver el primer elemento solamente"
+
+"generar de una lista solo los que son pares"
+
+"generar de una lista solo los que son impares"
+
+"generar una lista de una lista ordenada"
+
+"mezclar elementos de 2 listas"
