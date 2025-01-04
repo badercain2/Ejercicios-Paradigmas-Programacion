@@ -59,5 +59,3 @@ total_elementos:= ( (cadena1 size) + (cadena2 size) ).
 	
 	 ]. ^cadena3.
 
-
-	 ver solucion de mica del ejericio 5 que no ví

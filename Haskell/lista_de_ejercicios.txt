@@ -1,9 +1,9 @@
 listas de ejercicios en hasckell
 
 
-"recorrer una lista y devolver el ultimo elemento"
+"recorrer una lista y devolver el ultimo elemento" -->listo
 
-"longitud de una lista"
+"longitud de una lista"  -->listo
 
 "recorrer una lista y devolver el primer elemento solamente"
 
@@ -33,4 +33,16 @@ foldl (+) 5 [1,4,5,6]
 son foldl1 (fold left) (no necesita numero iniciar)
 son foldr1 (fold right) (no necesita numero iniciar)
 foldl1 (+)  [1,4,5,6]
+
+Factorial de 10
+Prelude> foldl (*) 1 [2..10]
+3628800
+Prelude> foldl1 (*) [1..10]
+3628800
+
+*Main> [x + y | x<-[1..10], y <- [1..10]]
+[2,3,4,5,6,7,8,9,10,11,3,4,5,6,7,8,9,10,11,12,4,5,6,7,8,9,10,11,12,13,5,6,7,8,9,10,11,12,13,14,6,7,8,9,10,11,12,13,14,15,7,8,9,10,11,12,13,14,15,16,8,9,10,11,12,13,14,15,16,17,9,10,11,12,13,14,15,16,17,18,10,11,12,13,14,15,16,17,18,19,11,12,13,14,15,16,17,18,19,20]
+
+
+
 

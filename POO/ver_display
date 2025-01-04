@@ -1,0 +1,48 @@
+| ventana_1 ventana_2 label_1 label_2 screenWidth screenHeight |
+
+"Obtener dimensiones de la pantalla"
+screenWidth := Display width.
+screenHeight := Display height.
+
+
+
+
+"esto esta perfecto"
+
+| ventana_1 ventana_2 label_1 label_2 screenWidth screenHeight |
+
+"Obtener dimensiones de la pantalla"
+screenWidth := Display width.
+screenHeight := Display height.
+
+"Ventana 1: Lo más a la izquierda posible"
+ventana_1 := Morph new.
+ventana_1 color: Color green.
+ventana_1 := (ImageReadWriter formFromStream: '/home/josuecenturion/Descargas/IMAGENES PROCESADAS/relojes/reloj.png' asFileReference binaryReadStream) asMorph.
+ventana_1 extent: 200@100.
+ventana_1 position: 0@((screenHeight // 2) - 50). "Posiciona la ventana 1 lo más a la izquierda y centrada verticalmente"
+
+label_1 := TextMorph new.
+label_1 contents: 'Jugador 1'.
+label_1 color: Color black.
+label_1 font: (LogicalFont familyName: 'Arial' pointSize: 20).
+label_1 position: ((ventana_1 bounds origin) + (10@10)). "Ajusta el texto dentro de la ventana"
+
+ventana_1 addMorph: label_1.
+ventana_1 openInWorld.
+
+"Ventana 2: Lo más a la derecha posible"
+ventana_2 := Morph new.
+ventana_2 color: Color blue.
+ventana_2 := (ImageReadWriter formFromStream: '/home/josuecenturion/Descargas/IMAGENES PROCESADAS/relojes/reloj.png' asFileReference binaryReadStream) asMorph.
+ventana_2 extent: 200@100.
+ventana_2 position: (screenWidth - 200)@((screenHeight // 2) - 50). "Posiciona la ventana 2 lo más a la derecha y centrada verticalmente"
+
+label_2 := TextMorph new.
+label_2 contents: 'Jugador 2'.
+label_2 color: Color black.
+label_2 font: (LogicalFont familyName: 'Arial' pointSize: 20).
+label_2 position: ((ventana_2 bounds origin) + (10@10)). "Ajusta el texto dentro de la ventana"
+
+ventana_2 addMorph: label_2.
+ventana_2 openInWorld.
